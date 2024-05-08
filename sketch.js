@@ -35,8 +35,8 @@ function draw () {
       ellipse(x, y, pointSize*5, pointSize);
     }
     else {
-      let pointSize = 10;
-      rect(x, y, pointSize, pointSize);    
+      let pointSize = 30;
+      rect(x, y, pointSize, pointSize);  
     }
   }
   renderCounter = renderCounter + 1;
