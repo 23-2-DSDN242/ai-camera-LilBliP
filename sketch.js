@@ -18,13 +18,13 @@ function setup () {
 
   imageMode(CENTER);
   noStroke();
-  background(255, 0, 0);
+  background(180, 150, 100);
   sourceImg.loadPixels();
   maskImg.loadPixels();
 }
 
 function draw () {
-  for(let i=0;i<4000;i++) {
+  for(let i=0;i<5000;i++) {
     let x = floor(random(sourceImg.width));
     let y = floor(random(sourceImg.height));
     let pix = sourceImg.get(x, y);
@@ -32,10 +32,10 @@ function draw () {
     fill(pix);
     if(mask[0] > 128) {
       let pointSize = 10;
-      ellipse(x, y, pointSize, pointSize);
+      ellipse(x, y, pointSize*5, pointSize);
     }
     else {
-      let pointSize = 20;
+      let pointSize = 10;
       rect(x, y, pointSize, pointSize);    
     }
   }
