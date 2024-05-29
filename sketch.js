@@ -3,9 +3,9 @@ let maskImg=null;
 let renderCounter=0;
 
 // change these three lines as appropiate
-let sourceFile = "sunset.jpg";
-let maskFile   = "sunsetmask.png";
-let outputFile = "output_1.png";
+let sourceFile = "input_3.jpg";
+let maskFile   = "mask_3.png";
+let outputFile = "output_3.png";
 
 function preload() {
   sourceImg = loadImage(sourceFile);
@@ -32,11 +32,19 @@ function draw () {
     fill(pix);
     if(mask[0] > 128) {
       let pointSize = 10;
-      ellipse(x, y, pointSize*5, pointSize);
+      ellipse(x, y, pointSize*6, pointSize);
     }
     else {
       let pointSize = 30;
-      rect(x, y, pointSize, pointSize);  
+      if(pix[2] > 90){
+        fill(pix[1],pix[2],pix[2],20)
+        ellipse(x, y, pointSize/5, pointSize*10);
+      }
+      else{
+        fill(pix)
+        rect(x, y, pointSize, pointSize);
+        rect(x, y, pointSize, pointSize);
+      }  
     }
   }
   renderCounter = renderCounter + 1;
@@ -44,7 +52,7 @@ function draw () {
     console.log("Done!")
     noLoop();
     // uncomment this to save the result
-    // saveArtworkImage(outputFile);
+     //saveArtworkImage(outputFile);
   }
 }
 
